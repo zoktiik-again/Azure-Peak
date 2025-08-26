@@ -233,11 +233,11 @@
 			/*
 				WEREWOLF INFECTION VIA BITE
 			*/
-			if(istype(user.dna.species, /datum/species/werewolf))
+			if(istype(caused_wound) && istype(user.dna.species, /datum/species/werewolf))
 				if(HAS_TRAIT(src, TRAIT_SILVER_BLESSED))
 					to_chat(user, span_warning("BLEH! [bite_victim] tastes of SILVER! My gift cannot take hold."))
 				else
-					caused_wound?.werewolf_infect_attempt()
+					caused_wound.werewolf_infect_attempt()
 					if(prob(30))
 						user.werewolf_feed(bite_victim, 10)
 			
